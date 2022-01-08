@@ -18,11 +18,13 @@ for (var i = 0 ; i < pacientes.length; i++){
         console.log('peso invalido')
         tdImc.textContent = 'peso invalido'
         pesoEhValido = false
+        paciente.classList.add("error")
     }
     if(altura <= 0 || altura >= 3){
         console.log('altura e invalida')
         tdImc.textContent = ' altura invalida'
         alturaEhValida = false
+        paciente.classList.add("error")
     }
     if(alturaEhValida && pesoEhValido){
     var imc = peso / (altura * altura)
