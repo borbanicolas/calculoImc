@@ -12,21 +12,21 @@ for (var i = 0 ; i < pacientes.length; i++){
     var peso = tdPeso.textContent
     var altura = tdAltura.textContent
     
-    var alturaEhValida = true
-    var pesoEhValido = true
-    if(peso <= 0 || peso > 1000){
+    var alturaEhValida = validaAltura(altura)
+    var pesoEhValido = validaPeso(peso)
+    if(!pesoEhValido){
         console.log('peso invalido')
-        tdImc.textContent = 'peso invalido'
         pesoEhValido = false
+        tdImc.textContent = 'peso invalido'
         paciente.classList.add("error")
     }
-    if(altura <= 0 || altura >= 3){
+    if(!alturaEhValida){
         console.log('altura e invalida')
-        tdImc.textContent = ' altura invalida'
         alturaEhValida = false
+        tdImc.textContent = ' altura invalida'
         paciente.classList.add("error")
     }
-    if(alturaEhValida && pesoEhValido){
+    if(pesoEhValido && alturaEhValida){
     var imc = calculaImc(peso, altura)
     tdImc.textContent = imc
     }
